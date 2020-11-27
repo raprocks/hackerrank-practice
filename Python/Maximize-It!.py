@@ -1,11 +1,19 @@
+import itertools
+
 n, modulo = map(int, input().strip().split())
+
+
+def itersum(x):
+    total = sum(i**2 for i in x)
+    return total
+
 
 lists = []
 
 for _ in range(n):
     lists.append(list(map(int, input().strip().split()))[1:])
-sum_squared = 0
-for each in lists:
-    maximum = max(each)
-    sum_squared += maximum**2
-print(sum_squared % modulo)
+
+iters = itertools.product(*lists)
+
+totals = [itersum(x)%modulo for x in iters]
+print(max(totals))
