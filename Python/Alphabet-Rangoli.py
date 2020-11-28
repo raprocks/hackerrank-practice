@@ -23,9 +23,10 @@ def print_rangoli(size):
         curr_label = curr_label.center(width, '-')
         labels.append(curr_label)
     # make a copy for bottom part and reverse it
-    labels_copy = labels.copy().reverse()
+    labels_copy = labels.copy()
+    labels_copy.reverse()
 
     labels.append(mid_label)
-    labels.append(labels_copy)
+    labels = labels + labels_copy
 
     print('\n'.join(labels))
